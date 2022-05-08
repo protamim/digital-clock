@@ -24,6 +24,12 @@ function digitalClock() {
     seconds
   }
 
+  if(minutes < 10) {
+    minutes = '0' + minutes
+  } else{
+    minutes
+  }
+
   const finalTime = `${hours}:${minutes}:${seconds}`
   document.querySelector('#time').innerText = finalTime
   document.querySelector('#format').innerText = timeFormat
@@ -34,15 +40,11 @@ function digitalClock() {
   let date = d.getDate()
   let year = d.getFullYear()
 
-  for(let i = 0; i < daysName.length; i++) {
-    days = daysName[i]
-  }
-  for(let x = 0; x < monthsName.length; x++) {
-    months = monthsName[x]
-  }
+  months = monthsName[months]
+  days = daysName[days]
 
   const finalDate = `${days}, ${months} ${date}, ${year}`
-  // console.log(months)
+  
 
   const fullDate = document.getElementById('full-date')
   fullDate.innerHTML = finalDate
